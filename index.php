@@ -51,21 +51,52 @@ if(isset($data["signup"])) { //sign up user
         echo "<div>".array_shift($error)."</div>";
     }
 
+    if(isset($data['signup'])){
+        $user = R::findOne('users', 'login = ?', array($data['login']));
+        
+        if($user){
+            if(password_verify($data['password'], $user->password)){
+                $_SESSION['login_user'] = $user;
+            }
+            else{
+                echo('Wrong password');
+            }
+        }
+        else{
+            echo('User not found');
+        }
+
+    }
+
 }
 
 
 ?>
 
 
+
+<?php
+
+if(isset($_SESSION['login_user'])) : ?>
+    <meta http-equiv="refresh" content="0; URL= '/user.php'"/>
+<?php else: ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>GreenWeb</title>
 </head>
 <body>
-    hello
+    <h1>hello! login or sign up</h1>
+    <form action="/" method="POST">
+        <input type = "text" name = "login" placeholder="Login"><br>
+        <input type = "password" name = "password" placeholder="Password"><br>
+        <button type = "submit" name = "signup">Log in</button> 
+    </form> 
+<br>
     <form action="/" method="POST">
         <input type = "text" name = "firstname" placeholder="Firstname"> <br>
         <input type = "text" name = "lastname" placeholder="Lastname"><br>
@@ -73,8 +104,8 @@ if(isset($data["signup"])) { //sign up user
         <input type = "password" name = "password" placeholder="Password"><br>
         <input type = "password" name = "password_2" placeholder="Confirm"><br>
         <button type = "submit" name = "signup">Sign up</button> 
-
-
     </form> 
 </body>
 </html>
+
+<?php endif; ?>

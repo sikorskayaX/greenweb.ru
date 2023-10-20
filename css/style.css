@@ -1,0 +1,23 @@
+﻿body{
+    background-color: beige;
+    text-align: center;
+}
+
+button{
+    background-color: darkseagreen;
+    color: whitesmoke;
+    border: none;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: #70b418; /* цвет фона при наведении */
+}
+
+::placeholder {
+    color: rgb(151, 173, 151);
+}
+
+a{
+    color:aquamarine;
+}
