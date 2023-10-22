@@ -5,6 +5,16 @@ require "db.php";
 if($_GET['id'] == ''){
     header('Location: /user?id='.$_SESSION['login_user']->id);
 }
+
+
+
+if($_GET['id'] == $_SESSION['login_user']->id){
+    $position = 'access';
+}
+else{
+    $position = 'view';
+}
+
 $user = R::findOne('users', 'id = ?', array($_GET['id']));
 
 ?>
@@ -19,6 +29,14 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 </head>
 <body>
     <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
+
+    <?php if($position == 'view') :?>
+        <div>
+            <button>write message</button>
+            <button>add to friends</button>
+        </div>
+    <?php endif; ?>
+
     <a href="/logout.php">Log out</a>
 </body>
 </html>
