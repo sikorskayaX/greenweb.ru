@@ -53,7 +53,7 @@ foreach($all_post as $row){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User page</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
 </head>
 <body>
     <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
@@ -66,7 +66,7 @@ foreach($all_post as $row){
     </div>
 
     <?php for($i = 0; $i < count($user_posts); $i++) : ?>
-        <div>
+        <div class = "post">
             <p>
                 <?php echo htmlspecialchars($user_posts[$i]['post']); ?>
             </p>
@@ -74,7 +74,7 @@ foreach($all_post as $row){
     <?php endfor; ?>
 
     <?php if($position == 'view') :?>
-        <div>
+        <div >
             <button>write message</button>
             <button>add to friends</button>
         </div>

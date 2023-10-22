@@ -1,0 +1,43 @@
+﻿body{
+    background-color: beige;
+    text-align: center;
+}
+
+button{
+    background-color: darkseagreen;
+    color: whitesmoke;
+    border: none;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: #70b418; /* цвет фона при наведении */
+}
+
+::placeholder {
+    color: rgb(151, 173, 151);
+}
+
+a{
+    color:rgb(114, 153, 140);
+}
+
+p{
+    background-color: rgb(250, 226, 240);
+    text-align: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px solid rgb(223, 198, 247);
+}
+
+input[type="text"] {
+  border: 1px solid #99008c;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
