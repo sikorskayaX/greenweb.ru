@@ -52,7 +52,50 @@ if(isset($data['add_friend'])){
         $add_f = R::dispense('friends');
         $add_f->id_add_user = $_SESSION['login_user']->id;
         $add_f->id_friend = $id_user;
+        $add_f->status = 0;
         R::store($add_f);
+    }
+}
+
+$all_friends = R::findAll('friends');
+$friend_status = 2;
+
+foreach($all_friends as $row){
+    if($row['id_add_user'] == $_SESSION['login_user']->id){
+        if ($row['id_friend'] = $_GET['id']){
+            if ($row['status'] == 0){
+                $friend_status = 0;
+            }
+            if ($row['status'] == 1){
+                $friend_status = 1;
+            }
+        }
+    }
+}
+
+$add_request = 2;
+$id_request = '';
+
+foreach($all_friends as $row){
+    if($row['id_friend'] == $_SESSION['login_user']->id){
+        if ($row['id_add_user'] = $_GET['id']){
+            if ($row['status'] == 0){
+                $add_request = 0;
+                $id_request = $row['id'];
+            }
+            if($row['status'] == 1){
+                $friend_status = 1;
+            }
+        }
+    }
+}
+
+if(isset($data['accept_request'])){
+    $id_request = $data['id_request'];
+    if($id_request){
+        $request = R::findOne('friends', 'id = ?', array($id_request));
+        $request->status = 1;
+        R::store($request);
     }
 }
 ?>
@@ -86,10 +129,33 @@ if(isset($data['add_friend'])){
     <?php if($position == 'view') :?>
         <div >
             <button>write message</button>
+
+            <?php if($friend_status == 2 & $add_request == 2) : ?>
             <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
                 <input type="hidden" name = "id_user" value ="<?php echo $_GET['id'];?>">
-                <button type ="submit" name = "add_friend">add to friends</button>
+                <button type ="submit" name = "add_friend">friend request</button>
             </form>
+            <?php endif; ?>
+
+            <?php if($add_request == 0) : ?>
+            <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
+                <input type="hidden" name = "id_request" value ="<?php echo $id_request;?>">
+                <button type ="submit" name = "accept_request">accept</button>
+            </form>
+            <?php endif; ?>
+
+            <?php if($friend_status == 0) : ?>
+            <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
+                <button type ="submit" name = "add_friend">cancel a friend request</button>
+            </form>
+            <?php endif; ?>
+
+            <?php if($friend_status == 1) : ?>
+            <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
+                <button type ="submit" name = "add_friend">delete friend</button>
+            </form>
+            <?php endif; ?>
+
         </div>
     <?php else: ?>
         <button>edit profile</button> 
