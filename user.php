@@ -45,6 +45,16 @@ foreach($all_post as $row){
         $user_posts[] = $row;
     }
 }
+
+if(isset($data['add_friend'])){
+    $id_user = $data["id_user"];
+    if ($id_user){
+        $add_f = R::dispense('friends');
+        $add_f->id_add_user = $_SESSION['login_user']->id;
+        $add_f->id_friend = $id_user;
+        R::store($add_f);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +62,7 @@ foreach($all_post as $row){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User page</title>
+    <title>green web - <?php echo $user->firstname." ".$user->lastname; ?></title>
     <link rel="stylesheet" type="text/css" href="css/new_style.css">
 </head>
 <body>
@@ -76,14 +86,15 @@ foreach($all_post as $row){
     <?php if($position == 'view') :?>
         <div >
             <button>write message</button>
-            <button>add to friends</button>
+            <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
+                <input type="hidden" name = "id_user" value ="<?php echo $_GET['id'];?>">
+                <button type ="submit" name = "add_friend">add to friends</button>
+            </form>
         </div>
     <?php else: ?>
         <button>edit profile</button> 
     <?php endif; ?>
     <br>
-    <a href="/logout">log out</a>
-    <br>
-    <a href="/user">my page</a>
+    <?php require "nav.php"?>
 </body>
 </html>
