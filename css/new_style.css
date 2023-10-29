@@ -1,4 +1,6 @@
-﻿body{
+﻿@import 'reset.css';
+
+body{
     background-color: rgb(220, 245, 235);
     text-align: center;
 }
@@ -48,5 +50,9 @@ input[type="password"] {
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 10px;
+  }
+
+  div{
+    background-color: aliceblue;
   }
 

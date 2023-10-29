@@ -109,7 +109,11 @@ if(isset($data['accept_request'])){
     <link rel="stylesheet" type="text/css" href="css/new_style.css">
 </head>
 <body>
-    <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
+    <div>
+        <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
+        <?php require "nav.php"?>
+    </div>
+    
     <div>
         <form action = "user?id = <?php echo $_GET['id']; ?>" method="POST">
             <input type="text" name = "post" placeholder=" write your post" >
@@ -119,7 +123,7 @@ if(isset($data['accept_request'])){
     </div>
 
     <?php for($i = 0; $i < count($user_posts); $i++) : ?>
-        <div class = "post">
+        <div>
             <p>
                 <?php echo htmlspecialchars($user_posts[$i]['post']); ?>
             </p>
@@ -161,6 +165,5 @@ if(isset($data['accept_request'])){
         <button>edit profile</button> 
     <?php endif; ?>
     <br>
-    <?php require "nav.php"?>
 </body>
 </html>
