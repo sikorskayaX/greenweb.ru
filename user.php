@@ -109,9 +109,11 @@ if(isset($data['accept_request'])){
     <link rel="stylesheet" type="text/css" href="css/new_style.css">
 </head>
 <body>
+    <div class = "nav">
+        <?php require "nav.php"?>
+    </div>
     <div>
         <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
-        <?php require "nav.php"?>
     </div>
     
     <div>

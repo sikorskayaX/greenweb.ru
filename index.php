@@ -90,7 +90,7 @@ if(isset($_SESSION['login_user'])) : ?>
     <title>GreenWeb</title>
 </head>
 <body>
-    <h1>hello! login or sign up</h1>
+    <h1>hello! login or sign up</h1> <br>
     <form action="/" method="POST">
         <input type = "text" name = "login" placeholder="Login"><br>
         <input type = "password" name = "password" placeholder="Password"><br>
