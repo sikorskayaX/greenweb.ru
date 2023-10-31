@@ -8,6 +8,5 @@
 </head>
 <body>
     <?require "nav.php"?>
-    
 </body>
 </html>

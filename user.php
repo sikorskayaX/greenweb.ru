@@ -112,7 +112,7 @@ if(isset($data['accept_request'])){
     <div class = "nav">
         <?php require "nav.php"?>
     </div>
-    <div>
+    <div class = "user">
         <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
     </div>
     
@@ -164,7 +164,7 @@ if(isset($data['accept_request'])){
 
         </div>
     <?php else: ?>
-        <button>edit profile</button> 
+        <button class = "centrbutton">edit profile</button> 
     <?php endif; ?>
     <br>
 </body>

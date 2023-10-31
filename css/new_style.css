@@ -1,5 +1,120 @@
 ﻿@import 'reset.css';
 
+body {
+    background-color: #fdfdf3; /* Бежевый цвет фона */
+    color: #556b2f; /* Нежно-зеленый цвет текста */
+    font-family: Arial, sans-serif; /* Шрифт */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #556b2f; /* Нежно-зеленый цвет заголовков */
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+.user{
+    background-color: rgb(225, 243, 223);
+    text-align: center;
+    width: 500px;
+    height: 100px;
+    margin-top: 20px;
+    margin: 20px auto; /* выравниваем body по центру страницы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 5px #556b2f;
+    border-radius: 10px;
+}
+
+a {
+    color: #556b2f; /* Нежно-зеленый цвет ссылок */
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+
+
+   a:hover {
+    color: #0b310b; /* Цвет ссылки при наведении */ 
+   }
+
+
+button {
+    background-color: #556b2f; /* Нежно-зеленый цвет кнопок */
+    color: #f4faee; /* Бежевый цвет текста на кнопках */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    
+}
+
+.centrbutton{
+    background-color: #556b2f; /* Нежно-зеленый цвет кнопок */
+    color: #f5f5dc; /* Бежевый цвет текста на кнопках */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #ebfff1; /* Бежевый цвет кнопок при наведении */
+    color: #556b2f; /* Нежно-зеленый цвет текста на кнопках при наведении */
+}
+
+.nav{
+    background-color: #ebfff1;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 50px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input[type="text"] {
+    width: 200px; /* задаем ширину для input */
+    padding: 10px; /* задаем отступы для input */
+    border: 1px solid #ccc; /* задаем границу для input */
+    border-radius: 5px; /* задаем скругление углов для input */
+  }
+
+  input[type="password"] {
+    width: 200px; /* задаем ширину для input */
+    padding: 10px; /* задаем отступы для input */
+    border: 1px solid #ccc; /* задаем границу для input */
+    border-radius: 5px; /* задаем скругление углов для input */
+  }
+
+p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 70%;
+    border: 1px solid #a7b4a8;
+    text-align: center;
+}
+
+/*
 body{
     background-color: rgb(220, 245, 235);
     justify-content: center;
@@ -15,8 +130,9 @@ button{
 }
 
 button:hover {
-    background-color: #70b418; /* цвет фона при наведении */
+    background-color: #70b418; 
 }
+
 
 ::placeholder {
     color: rgb(151, 173, 151);
@@ -65,3 +181,4 @@ input[type="password"] {
     background-color: #f2f2f2;;
     text-align: center;
   }
+*/

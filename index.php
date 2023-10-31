@@ -91,7 +91,7 @@ if(isset($_SESSION['login_user'])) : ?>
 </head>
 <body>
     <h1>hello! login or sign up</h1> <br>
-    <form action="/" method="POST">
+    <form class = "login" action="/" method="POST">
         <input type = "text" name = "login" placeholder="Login"><br>
         <input type = "password" name = "password" placeholder="Password"><br>
         <button type = "submit" name = "signup">Log in</button> 
