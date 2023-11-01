@@ -109,9 +109,9 @@ if(isset($data['accept_request'])){
     <link rel="stylesheet" type="text/css" href="css/new_style.css">
 </head>
 <body>
-    <div class = "nav">
-        <?php require "nav.php"?>
-    </div>
+    
+    <?php require "nav.php"?>
+    
     <div class = "user">
         <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
     </div>
@@ -126,7 +126,7 @@ if(isset($data['accept_request'])){
 
     <?php for($i = 0; $i < count($user_posts); $i++) : ?>
         <div>
-            <p>
+            <p class = "post">
                 <?php echo htmlspecialchars($user_posts[$i]['post']); ?>
             </p>
         </div>
@@ -134,7 +134,7 @@ if(isset($data['accept_request'])){
 
     <?php if($position == 'view') :?>
         <div >
-            <button>write message</button>
+            <button class = "centrbutton">write message</button>
 
             <?php if($friend_status == 2 & $add_request == 2) : ?>
             <form action = "/user?id=<?php echo $_GET['id'];?>" method="POST">
