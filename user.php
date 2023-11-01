@@ -115,7 +115,8 @@ if(isset($data['accept_request'])){
     <div class = "user">
         <h1><?php echo $user->firstname." ".$user->lastname; ?></h1>
     </div>
-    
+    <?php if($position == 'view') :?>
+    <?php else: ?>
     <div>
         <form action = "user?id = <?php echo $_GET['id']; ?>" method="POST">
             <input type="text" name = "post" placeholder=" write your post" >
@@ -123,7 +124,7 @@ if(isset($data['accept_request'])){
 
         </form>
     </div>
-
+    <?php endif; ?>
     <?php for($i = 0; $i < count($user_posts); $i++) : ?>
         <div>
             <p class = "post">
